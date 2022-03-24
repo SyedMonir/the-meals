@@ -6,19 +6,17 @@ import { useState } from 'react';
 
 function App() {
   const [cart, setCart] = useState(0);
-  let cartLength = 0;
+  // let cartLength = 0;
   const handleAddToCart = (id) => {
-    console.log(id);
-    setCart(cartLength + 1);
+    const newCartLength = cart + 1;
+    setCart(newCartLength);
   };
 
   return (
     <div>
-      <header>
-        <Header />
-      </header>
+      <Header cart={cart} />
       <main>
-        <Foods handleAddToCart={handleAddToCart} cart={cart} />
+        <Foods handleAddToCart={handleAddToCart} />
       </main>
     </div>
   );

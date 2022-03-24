@@ -9,7 +9,7 @@ import {
 import Food from '../Food/Food';
 import './Foods.css';
 
-const Foods = ({ handleAddToCart, cart }) => {
+const Foods = ({ handleAddToCart }) => {
   const [foods, setFoods] = useState([]);
   useEffect(() => {
     fetch('https://www.themealdb.com/api/json/v1/1/search.php?f=a')
@@ -37,7 +37,6 @@ const Foods = ({ handleAddToCart, cart }) => {
                 key={food.idMeal}
                 food={food}
                 handleAddToCart={handleAddToCart}
-                cart={cart}
               ></Food>
             ))}
           </Row>

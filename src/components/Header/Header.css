@@ -1,5 +1,8 @@
 nav {
     background-color: teal;
+    position: sticky;
+    top: 0;
+    z-index: 2;
 }
 
 .navbar-light .navbar-brand,
