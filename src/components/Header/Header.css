@@ -1,0 +1,13 @@
+nav {
+    background-color: teal;
+}
+
+.navbar-light .navbar-brand,
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+.btn-primary {
+    background-color: transparent;
+    border-color: transparent;
+}

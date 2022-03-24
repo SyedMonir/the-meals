@@ -1,12 +1,24 @@
-
-import React from 'react';
-import { Button, FormControl, InputGroup } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import {
+  Button,
+  Container,
+  FormControl,
+  InputGroup,
+  Row,
+} from 'react-bootstrap';
+import Food from '../Food/Food';
 import './Foods.css';
 
-const Foods = () => {
+const Foods = ({ handleAddToCart, cart }) => {
+  const [foods, setFoods] = useState([]);
+  useEffect(() => {
+    fetch('https://www.themealdb.com/api/json/v1/1/search.php?f=a')
+      .then((response) => response.json())
+      .then((data) => setFoods(data.meals));
+  }, []);
   return (
-    <div>
-      <InputGroup className="my-4 w-75 m-auto">
+    <section>
+      <InputGroup className="my-4 w-50 m-auto">
         <FormControl
           placeholder="Search your meal"
           aria-label="Search your meal"
@@ -16,7 +28,22 @@ const Foods = () => {
           Search
         </Button>
       </InputGroup>
-    </div>
+
+      <section id="foods-container">
+        <Container>
+          <Row>
+            {foods.map((food) => (
+              <Food
+                key={food.idMeal}
+                food={food}
+                handleAddToCart={handleAddToCart}
+                cart={cart}
+              ></Food>
+            ))}
+          </Row>
+        </Container>
+      </section>
+    </section>
   );
 };
 
