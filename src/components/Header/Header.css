@@ -10,7 +10,13 @@ nav {
     color: white;
 }
 
-.btn-primary {
+.cartMenu.btn-primary {
     background-color: transparent;
     border-color: transparent;
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 745px;
+    }
 }

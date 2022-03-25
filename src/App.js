@@ -5,11 +5,11 @@ import Foods from './components/Foods/Foods';
 import { useState } from 'react';
 
 function App() {
-  const [cart, setCart] = useState(0);
+  const [cart, setCart] = useState([]);
   // let cartLength = 0;
-  const handleAddToCart = (id) => {
-    const newCartLength = cart + 1;
-    setCart(newCartLength);
+  const handleAddToCart = (food) => {
+    const newCart = [...cart, food];
+    setCart(newCart);
   };
 
   return (
